@@ -1,0 +1,17 @@
+express cors,mysql2,bodyparser,jsonwebtoken,bcrypt
+
+
+Requests & Responses
+ทุกๆ request ที่ส่งเข้าไปใน server นั้น ก็จะมี object ของ request และ response อยู่
+
+Request เป็น Object ที่ประกอบด้วยข้อมูลที่เราส่งไปหา server โดยมี property ต่างๆให้เราอ่านข้อมูลได้ เช่น
+
+req.params อ่านข้อมูลตัว variable ที่เรา set ให้กับตัว route เช่น ที่เราทำไปเมื่อกี้ ที่เป็น /:id
+req.query อ่านข้อมูลของ query string ที่ user ส่งเข้ามาผ่าน url
+req.body การอ่านข้อมูลที่ user ส่งมาผ่าน request body
+Response ก็จะมี method ต่างๆในการส่งข้อมูลกลับไปหา client ได้
+
+res.send() ส่งข้อมูลปกติไปหา client
+res.sendFile() ใช่ส่งไฟล์
+res.sendStatus() 
+set http status code ต่างๆ เช่น ยิง request มาหาข้อมูลอันนี้ แล้วไม่พบในระบบ จะส่ง 404 ไป, ถ้า user ไม่ได้ login ก็จะส่ง 401 หรือถ้า user นั้นไม่มีสิทธิ์เข้าถึงข้อมูลตรงนี้ก็จะส่ง 403 ไป
